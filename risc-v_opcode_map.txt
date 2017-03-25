@@ -1,0 +1,347 @@
+ 3         2         1         0
+10987654321098765432109876543210
+SSSSSSSSSSSSSSSSSSSSRRRRR0110111 lui rd,imm                     # rv32i
+OOOOOOOOOOOOOOOOOOOORRRRR0010111 auipc rd,offset                # rv32i
+OOOOOOOOOOOOOOOOOOOORRRRR1101111 jal rd,offset                  # rv32i
+OOOOOOOOOOOORRRRR000RRRRR1100111 jalr rd,rs1,offset             # rv32i
+OOOOOOORRRRRRRRRR000OOOOO1100011 beq rs1,rs2,offset             # rv32i
+OOOOOOORRRRRRRRRR001OOOOO1100011 bne rs1,rs2,offset             # rv32i
+OOOOOOORRRRRRRRRR100OOOOO1100011 blt rs1,rs2,offset             # rv32i
+OOOOOOORRRRRRRRRR101OOOOO1100011 bge rs1,rs2,offset             # rv32i
+OOOOOOORRRRRRRRRR110OOOOO1100011 bltu rs1,rs2,offset            # rv32i
+OOOOOOORRRRRRRRRR111OOOOO1100011 bgeu rs1,rs2,offset            # rv32i
+OOOOOOOOOOOORRRRR000RRRRR0000011 lb rd,offset(rs1)              # rv32i
+OOOOOOOOOOOORRRRR001RRRRR0000011 lh rd,offset(rs1)              # rv32i
+OOOOOOOOOOOORRRRR010RRRRR0000011 lw rd,offset(rs1)              # rv32i
+OOOOOOOOOOOORRRRR100RRRRR0000011 lbu rd,offset(rs1)             # rv32i
+OOOOOOOOOOOORRRRR101RRRRR0000011 lhu rd,offset(rs1)             # rv32i
+OOOOOOORRRRRRRRRR000OOOOO0100011 sb rs2,offset(rs1)             # rv32i
+OOOOOOORRRRRRRRRR001OOOOO0100011 sh rs2,offset(rs1)             # rv32i
+OOOOOOORRRRRRRRRR010OOOOO0100011 sw rs2,offset(rs1)             # rv32i
+SSSSSSSSSSSSRRRRR000RRRRR0010011 addi rd,rs1,imm                # rv32i
+SSSSSSSSSSSSRRRRR010RRRRR0010011 slti rd,rs1,imm                # rv32i
+SSSSSSSSSSSSRRRRR011RRRRR0010011 sltiu rd,rs1,imm               # rv32i
+SSSSSSSSSSSSRRRRR100RRRRR0010011 xori rd,rs1,imm                # rv32i
+ 3         2         1         0
+10987654321098765432109876543210
+SSSSSSSSSSSSRRRRR110RRRRR0010011 ori rd,rs1,imm                 # rv32i
+SSSSSSSSSSSSRRRRR111RRRRR0010011 andi rd,rs1,imm                # rv32i
+00000UUUUUUURRRRR001RRRRR0010011 slli rd,rs1,imm                # rv128i
+00000UUUUUUURRRRR101RRRRR0010011 srli rd,rs1,imm                # rv128i
+01000UUUUUUURRRRR101RRRRR0010011 srai rd,rs1,imm                # rv128i
+0000000RRRRRRRRRR000RRRRR0110011 add rd,rs1,rs2                 # rv32i
+0100000RRRRRRRRRR000RRRRR0110011 sub rd,rs1,rs2                 # rv32i
+0000000RRRRRRRRRR001RRRRR0110011 sll rd,rs1,rs2                 # rv32i
+0000000RRRRRRRRRR010RRRRR0110011 slt rd,rs1,rs2                 # rv32i
+0000000RRRRRRRRRR011RRRRR0110011 sltu rd,rs1,rs2                # rv32i
+0000000RRRRRRRRRR100RRRRR0110011 xor rd,rs1,rs2                 # rv32i
+0000000RRRRRRRRRR101RRRRR0110011 srl rd,rs1,rs2                 # rv32i
+0100000RRRRRRRRRR101RRRRR0110011 sra rd,rs1,rs2                 # rv32i
+0000000RRRRRRRRRR110RRRRR0110011 or rd,rs1,rs2                  # rv32i
+0000000RRRRRRRRRR111RRRRR0110011 and rd,rs1,rs2                 # rv32i
+....AAAAAAAA.....000.....0001111 fence pred,succ                # rv32i
+.................001.....0001111 fence.i none                   # rv32i
+OOOOOOOOOOOORRRRR110RRRRR0000011 lwu rd,offset(rs1)             # rv64i
+OOOOOOOOOOOORRRRR011RRRRR0000011 ld rd,offset(rs1)              # rv64i
+OOOOOOORRRRRRRRRR011OOOOO0100011 sd rs2,offset(rs1)             # rv64i
+SSSSSSSSSSSSRRRRR000RRRRR0011011 addiw rd,rs1,imm               # rv64i
+0000000UUUUURRRRR001RRRRR0011011 slliw rd,rs1,imm               # rv64i
+ 3         2         1         0
+10987654321098765432109876543210
+0000000UUUUURRRRR101RRRRR0011011 srliw rd,rs1,imm               # rv64i
+0100000UUUUURRRRR101RRRRR0011011 sraiw rd,rs1,imm               # rv64i
+0000000RRRRRRRRRR000RRRRR0111011 addw rd,rs1,rs2                # rv64i
+0100000RRRRRRRRRR000RRRRR0111011 subw rd,rs1,rs2                # rv64i
+0000000RRRRRRRRRR001RRRRR0111011 sllw rd,rs1,rs2                # rv64i
+0000000RRRRRRRRRR101RRRRR0111011 srlw rd,rs1,rs2                # rv64i
+0100000RRRRRRRRRR101RRRRR0111011 sraw rd,rs1,rs2                # rv64i
+OOOOOOOOOOOORRRRR111RRRRR0000011 ldu rd,offset(rs1)             # rv128i
+OOOOOOOOOOOORRRRR010RRRRR0001111 lq rd,offset(rs1)              # rv128i
+OOOOOOORRRRRRRRRR100OOOOO0100011 sq rs2,offset(rs1)             # rv128i
+SSSSSSSSSSSSRRRRR000RRRRR1011011 addid rd,rs1,imm               # rv128i
+000000UUUUUURRRRR001RRRRR1011011 sllid rd,rs1,imm               # rv128i
+000000UUUUUURRRRR101RRRRR1011011 srlid rd,rs1,imm               # rv128i
+010000UUUUUURRRRR101RRRRR1011011 sraid rd,rs1,imm               # rv128i
+0000000RRRRRRRRRR000RRRRR1111011 addd rd,rs1,rs2                # rv128i
+0100000RRRRRRRRRR000RRRRR1111011 subd rd,rs1,rs2                # rv128i
+0000000RRRRRRRRRR001RRRRR1111011 slld rd,rs1,rs2                # rv128i
+0000000RRRRRRRRRR101RRRRR1111011 srld rd,rs1,rs2                # rv128i
+0100000RRRRRRRRRR101RRRRR1111011 srad rd,rs1,rs2                # rv128i
+0000001RRRRRRRRRR000RRRRR0110011 mul rd,rs1,rs2                 # rv32m
+0000001RRRRRRRRRR001RRRRR0110011 mulh rd,rs1,rs2                # rv32m
+0000001RRRRRRRRRR010RRRRR0110011 mulhsu rd,rs1,rs2              # rv32m
+ 3         2         1         0
+10987654321098765432109876543210
+0000001RRRRRRRRRR011RRRRR0110011 mulhu rd,rs1,rs2               # rv32m
+0000001RRRRRRRRRR100RRRRR0110011 div rd,rs1,rs2                 # rv32m
+0000001RRRRRRRRRR101RRRRR0110011 divu rd,rs1,rs2                # rv32m
+0000001RRRRRRRRRR110RRRRR0110011 rem rd,rs1,rs2                 # rv32m
+0000001RRRRRRRRRR111RRRRR0110011 remu rd,rs1,rs2                # rv32m
+0000001RRRRRRRRRR000RRRRR0111011 mulw rd,rs1,rs2                # rv64m
+0000001RRRRRRRRRR100RRRRR0111011 divw rd,rs1,rs2                # rv64m
+0000001RRRRRRRRRR101RRRRR0111011 divuw rd,rs1,rs2               # rv64m
+0000001RRRRRRRRRR110RRRRR0111011 remw rd,rs1,rs2                # rv64m
+0000001RRRRRRRRRR111RRRRR0111011 remuw rd,rs1,rs2               # rv64m
+0000001RRRRRRRRRR000RRRRR1111011 muld rd,rs1,rs2                # rv128m
+0000001RRRRRRRRRR100RRRRR1111011 divd rd,rs1,rs2                # rv128m
+0000001RRRRRRRRRR101RRRRR1111011 divud rd,rs1,rs2               # rv128m
+0000001RRRRRRRRRR110RRRRR1111011 remd rd,rs1,rs2                # rv128m
+0000001RRRRRRRRRR111RRRRR1111011 remud rd,rs1,rs2               # rv128m
+00010AA00000RRRRR010RRRRR0101111 lr.w aqrl,rd,(rs1)             # rv32a
+00011AARRRRRRRRRR010RRRRR0101111 sc.w aqrl,rd,rs2,(rs1)         # rv32a
+00001AARRRRRRRRRR010RRRRR0101111 amoswap.w aqrl,rd,rs2,(rs1)    # rv32a
+00000AARRRRRRRRRR010RRRRR0101111 amoadd.w aqrl,rd,rs2,(rs1)     # rv32a
+00100AARRRRRRRRRR010RRRRR0101111 amoxor.w aqrl,rd,rs2,(rs1)     # rv32a
+01000AARRRRRRRRRR010RRRRR0101111 amoor.w aqrl,rd,rs2,(rs1)      # rv32a
+01100AARRRRRRRRRR010RRRRR0101111 amoand.w aqrl,rd,rs2,(rs1)     # rv32a
+ 3         2         1         0
+10987654321098765432109876543210
+10000AARRRRRRRRRR010RRRRR0101111 amomin.w aqrl,rd,rs2,(rs1)     # rv32a
+10100AARRRRRRRRRR010RRRRR0101111 amomax.w aqrl,rd,rs2,(rs1)     # rv32a
+11000AARRRRRRRRRR010RRRRR0101111 amominu.w aqrl,rd,rs2,(rs1)    # rv32a
+11100AARRRRRRRRRR010RRRRR0101111 amomaxu.w aqrl,rd,rs2,(rs1)    # rv32a
+00010AA00000RRRRR011RRRRR0101111 lr.d aqrl,rd,(rs1)             # rv64a
+00011AARRRRRRRRRR011RRRRR0101111 sc.d aqrl,rd,rs2,(rs1)         # rv64a
+00001AARRRRRRRRRR011RRRRR0101111 amoswap.d aqrl,rd,rs2,(rs1)    # rv64a
+00000AARRRRRRRRRR011RRRRR0101111 amoadd.d aqrl,rd,rs2,(rs1)     # rv64a
+00100AARRRRRRRRRR011RRRRR0101111 amoxor.d aqrl,rd,rs2,(rs1)     # rv64a
+01000AARRRRRRRRRR011RRRRR0101111 amoor.d aqrl,rd,rs2,(rs1)      # rv64a
+01100AARRRRRRRRRR011RRRRR0101111 amoand.d aqrl,rd,rs2,(rs1)     # rv64a
+10000AARRRRRRRRRR011RRRRR0101111 amomin.d aqrl,rd,rs2,(rs1)     # rv64a
+10100AARRRRRRRRRR011RRRRR0101111 amomax.d aqrl,rd,rs2,(rs1)     # rv64a
+11000AARRRRRRRRRR011RRRRR0101111 amominu.d aqrl,rd,rs2,(rs1)    # rv64a
+11100AARRRRRRRRRR011RRRRR0101111 amomaxu.d aqrl,rd,rs2,(rs1)    # rv64a
+00010AA00000RRRRR100RRRRR0101111 lr.q aqrl,rd,(rs1)             # rv128a
+00011AARRRRRRRRRR100RRRRR0101111 sc.q aqrl,rd,rs2,(rs1)         # rv128a
+00001AARRRRRRRRRR100RRRRR0101111 amoswap.q aqrl,rd,rs2,(rs1)    # rv128a
+00000AARRRRRRRRRR100RRRRR0101111 amoadd.q aqrl,rd,rs2,(rs1)     # rv128a
+00100AARRRRRRRRRR100RRRRR0101111 amoxor.q aqrl,rd,rs2,(rs1)     # rv128a
+01000AARRRRRRRRRR100RRRRR0101111 amoor.q aqrl,rd,rs2,(rs1)      # rv128a
+01100AARRRRRRRRRR100RRRRR0101111 amoand.q aqrl,rd,rs2,(rs1)     # rv128a
+ 3         2         1         0
+10987654321098765432109876543210
+10000AARRRRRRRRRR100RRRRR0101111 amomin.q aqrl,rd,rs2,(rs1)     # rv128a
+10100AARRRRRRRRRR100RRRRR0101111 amomax.q aqrl,rd,rs2,(rs1)     # rv128a
+11000AARRRRRRRRRR100RRRRR0101111 amominu.q aqrl,rd,rs2,(rs1)    # rv128a
+11100AARRRRRRRRRR100RRRRR0101111 amomaxu.q aqrl,rd,rs2,(rs1)    # rv128a
+00000000000000000000000001110011 ecall none                     # rv32s
+00000000000100000000000001110011 ebreak none                    # rv32s
+00000000001000000000000001110011 uret none                      # rv32s
+00010000001000000000000001110011 sret none                      # rv32s
+00100000001000000000000001110011 hret none                      # rv32s
+00110000001000000000000001110011 mret none                      # rv32s
+01111011001000000000000001110011 dret none                      # rv32s
+000100000100RRRRR000000001110011 sfence.vm rs1                  # rv32s
+00010000010100000000000001110011 wfi none                       # rv32s
+UUUUUUUUUUUURRRRR001RRRRR1110011 csrrw rd,csr,rs1               # rv32s
+UUUUUUUUUUUURRRRR010RRRRR1110011 csrrs rd,csr,rs1               # rv32s
+UUUUUUUUUUUURRRRR011RRRRR1110011 csrrc rd,csr,rs1               # rv32s
+UUUUUUUUUUUUUUUUU101RRRRR1110011 csrrwi rd,csr,zimm             # rv32s
+UUUUUUUUUUUUUUUUU110RRRRR1110011 csrrsi rd,csr,zimm             # rv32s
+UUUUUUUUUUUUUUUUU111RRRRR1110011 csrrci rd,csr,zimm             # rv32s
+OOOOOOOOOOOORRRRR010FFFFF0000111 flw frd,offset(rs1)            # rv32f
+OOOOOOOFFFFFRRRRR010OOOOO0100111 fsw frs2,offset(rs1)           # rv32f
+FFFFF00FFFFFFFFFFAAAFFFFF1000011 fmadd.s rm,frd,frs1,frs2,frs3  # rv32f
+ 3         2         1         0
+10987654321098765432109876543210
+FFFFF00FFFFFFFFFFAAAFFFFF1000111 fmsub.s rm,frd,frs1,frs2,frs3  # rv32f
+FFFFF00FFFFFFFFFFAAAFFFFF1001011 fnmsub.s rm,frd,frs1,frs2,frs3 # rv32f
+FFFFF00FFFFFFFFFFAAAFFFFF1001111 fnmadd.s rm,frd,frs1,frs2,frs3 # rv32f
+0000000FFFFFFFFFFAAAFFFFF1010011 fadd.s rm,frd,frs1,frs2        # rv32f
+0000100FFFFFFFFFFAAAFFFFF1010011 fsub.s rm,frd,frs1,frs2        # rv32f
+0001000FFFFFFFFFFAAAFFFFF1010011 fmul.s rm,frd,frs1,frs2        # rv32f
+0001100FFFFFFFFFFAAAFFFFF1010011 fdiv.s rm,frd,frs1,frs2        # rv32f
+0010000FFFFFFFFFF000FFFFF1010011 fsgnj.s frd,frs1,frs2          # rv32f
+0010000FFFFFFFFFF001FFFFF1010011 fsgnjn.s frd,frs1,frs2         # rv32f
+0010000FFFFFFFFFF010FFFFF1010011 fsgnjx.s frd,frs1,frs2         # rv32f
+0010100FFFFFFFFFF000FFFFF1010011 fmin.s frd,frs1,frs2           # rv32f
+0010100FFFFFFFFFF001FFFFF1010011 fmax.s frd,frs1,frs2           # rv32f
+010110000000FFFFFAAAFFFFF1010011 fsqrt.s rm,frd,frs1            # rv32f
+1010000FFFFFFFFFF000RRRRR1010011 fle.s rd,frs1,frs2             # rv32f
+1010000FFFFFFFFFF001RRRRR1010011 flt.s rd,frs1,frs2             # rv32f
+1010000FFFFFFFFFF010RRRRR1010011 feq.s rd,frs1,frs2             # rv32f
+110000000000FFFFFAAARRRRR1010011 fcvt.w.s rm,rd,frs1            # rv32f
+110000000001FFFFFAAARRRRR1010011 fcvt.wu.s rm,rd,frs1           # rv32f
+110100000000RRRRRAAAFFFFF1010011 fcvt.s.w rm,frd,rs1            # rv32f
+110100000001RRRRRAAAFFFFF1010011 fcvt.s.wu rm,frd,rs1           # rv32f
+111000000000FFFFF000RRRRR1010011 fmv.x.s rd,frs1                # rv32f
+111000000000FFFFF001RRRRR1010011 fclass.s rd,frs1               # rv32f
+ 3         2         1         0
+10987654321098765432109876543210
+111100000000RRRRR000FFFFF1010011 fmv.s.x frd,rs1                # rv32f
+110000000010FFFFFAAARRRRR1010011 fcvt.l.s rm,rd,frs1            # rv64f
+110000000011FFFFFAAARRRRR1010011 fcvt.lu.s rm,rd,frs1           # rv64f
+110100000010RRRRRAAAFFFFF1010011 fcvt.s.l rm,frd,rs1            # rv64f
+110100000011RRRRRAAAFFFFF1010011 fcvt.s.lu rm,frd,rs1           # rv64f
+OOOOOOOOOOOORRRRR011FFFFF0000111 fld frd,offset(rs1)            # rv32d
+OOOOOOOFFFFFRRRRR011OOOOO0100111 fsd frs2,offset(rs1)           # rv32d
+FFFFF01FFFFFFFFFFAAAFFFFF1000011 fmadd.d rm,frd,frs1,frs2,frs3  # rv32d
+FFFFF01FFFFFFFFFFAAAFFFFF1000111 fmsub.d rm,frd,frs1,frs2,frs3  # rv32d
+FFFFF01FFFFFFFFFFAAAFFFFF1001011 fnmsub.d rm,frd,frs1,frs2,frs3 # rv32d
+FFFFF01FFFFFFFFFFAAAFFFFF1001111 fnmadd.d rm,frd,frs1,frs2,frs3 # rv32d
+0000001FFFFFFFFFFAAAFFFFF1010011 fadd.d rm,frd,frs1,frs2        # rv32d
+0000101FFFFFFFFFFAAAFFFFF1010011 fsub.d rm,frd,frs1,frs2        # rv32d
+0001001FFFFFFFFFFAAAFFFFF1010011 fmul.d rm,frd,frs1,frs2        # rv32d
+0001101FFFFFFFFFFAAAFFFFF1010011 fdiv.d rm,frd,frs1,frs2        # rv32d
+0010001FFFFFFFFFF000FFFFF1010011 fsgnj.d frd,frs1,frs2          # rv32d
+0010001FFFFFFFFFF001FFFFF1010011 fsgnjn.d frd,frs1,frs2         # rv32d
+0010001FFFFFFFFFF010FFFFF1010011 fsgnjx.d frd,frs1,frs2         # rv32d
+0010101FFFFFFFFFF000FFFFF1010011 fmin.d frd,frs1,frs2           # rv32d
+0010101FFFFFFFFFF001FFFFF1010011 fmax.d frd,frs1,frs2           # rv32d
+010000000001FFFFFAAAFFFFF1010011 fcvt.s.d rm,frd,frs1           # rv32d
+010000100000FFFFFAAAFFFFF1010011 fcvt.d.s rm,frd,frs1           # rv32d
+ 3         2         1         0
+10987654321098765432109876543210
+010110100000FFFFFAAAFFFFF1010011 fsqrt.d rm,frd,frs1            # rv32d
+1010001FFFFFFFFFF000RRRRR1010011 fle.d rd,frs1,frs2             # rv32d
+1010001FFFFFFFFFF001RRRRR1010011 flt.d rd,frs1,frs2             # rv32d
+1010001FFFFFFFFFF010RRRRR1010011 feq.d rd,frs1,frs2             # rv32d
+110000100000FFFFFAAARRRRR1010011 fcvt.w.d rm,rd,frs1            # rv32d
+110000100001FFFFFAAARRRRR1010011 fcvt.wu.d rm,rd,frs1           # rv32d
+110100100000RRRRRAAAFFFFF1010011 fcvt.d.w rm,frd,rs1            # rv32d
+110100100001RRRRRAAAFFFFF1010011 fcvt.d.wu rm,frd,rs1           # rv32d
+111000100000FFFFF001RRRRR1010011 fclass.d rd,frs1               # rv32d
+110000100010FFFFFAAARRRRR1010011 fcvt.l.d rm,rd,frs1            # rv64d
+110000100011FFFFFAAARRRRR1010011 fcvt.lu.d rm,rd,frs1           # rv64d
+111000100000FFFFF000RRRRR1010011 fmv.x.d rd,frs1                # rv64d
+110100100010RRRRRAAAFFFFF1010011 fcvt.d.l rm,frd,rs1            # rv64d
+110100100011RRRRRAAAFFFFF1010011 fcvt.d.lu rm,frd,rs1           # rv64d
+111100100000RRRRR000FFFFF1010011 fmv.d.x frd,rs1                # rv64d
+OOOOOOOOOOOORRRRR100FFFFF0000111 flq frd,offset(rs1)            # rv32q
+OOOOOOOFFFFFRRRRR100OOOOO0100111 fsq frs2,offset(rs1)           # rv32q
+FFFFF11FFFFFFFFFFAAAFFFFF1000011 fmadd.q rm,frd,frs1,frs2,frs3  # rv32q
+FFFFF11FFFFFFFFFFAAAFFFFF1000111 fmsub.q rm,frd,frs1,frs2,frs3  # rv32q
+FFFFF11FFFFFFFFFFAAAFFFFF1001011 fnmsub.q rm,frd,frs1,frs2,frs3 # rv32q
+FFFFF11FFFFFFFFFFAAAFFFFF1001111 fnmadd.q rm,frd,frs1,frs2,frs3 # rv32q
+0000011FFFFFFFFFFAAAFFFFF1010011 fadd.q rm,frd,frs1,frs2        # rv32q
+ 3         2         1         0
+10987654321098765432109876543210
+0000111FFFFFFFFFFAAAFFFFF1010011 fsub.q rm,frd,frs1,frs2        # rv32q
+0001011FFFFFFFFFFAAAFFFFF1010011 fmul.q rm,frd,frs1,frs2        # rv32q
+0001111FFFFFFFFFFAAAFFFFF1010011 fdiv.q rm,frd,frs1,frs2        # rv32q
+0010011FFFFFFFFFF000FFFFF1010011 fsgnj.q frd,frs1,frs2          # rv32q
+0010011FFFFFFFFFF001FFFFF1010011 fsgnjn.q frd,frs1,frs2         # rv32q
+0010011FFFFFFFFFF010FFFFF1010011 fsgnjx.q frd,frs1,frs2         # rv32q
+0010111FFFFFFFFFF000FFFFF1010011 fmin.q frd,frs1,frs2           # rv32q
+0010111FFFFFFFFFF001FFFFF1010011 fmax.q frd,frs1,frs2           # rv32q
+010000000011FFFFFAAAFFFFF1010011 fcvt.s.q rm,frd,frs1           # rv32q
+010001100000FFFFFAAAFFFFF1010011 fcvt.q.s rm,frd,frs1           # rv32q
+010000100011FFFFFAAAFFFFF1010011 fcvt.d.q rm,frd,frs1           # rv32q
+010001100001FFFFFAAAFFFFF1010011 fcvt.q.d rm,frd,frs1           # rv32q
+010111100000FFFFFAAAFFFFF1010011 fsqrt.q rm,frd,frs1            # rv32q
+1010011FFFFFFFFFF000RRRRR1010011 fle.q rd,frs1,frs2             # rv32q
+1010011FFFFFFFFFF001RRRRR1010011 flt.q rd,frs1,frs2             # rv32q
+1010011FFFFFFFFFF010RRRRR1010011 feq.q rd,frs1,frs2             # rv32q
+110001100000FFFFFAAARRRRR1010011 fcvt.w.q rm,rd,frs1            # rv32q
+110001100001FFFFFAAARRRRR1010011 fcvt.wu.q rm,rd,frs1           # rv32q
+110101100000RRRRRAAAFFFFF1010011 fcvt.q.w rm,frd,rs1            # rv32q
+110101100001RRRRRAAAFFFFF1010011 fcvt.q.wu rm,frd,rs1           # rv32q
+111001100000FFFFF001RRRRR1010011 fclass.q rd,frs1               # rv32q
+110001100010FFFFFAAARRRRR1010011 fcvt.l.q rm,rd,frs1            # rv64q
+ 3         2         1         0
+10987654321098765432109876543210
+110001100011FFFFFAAARRRRR1010011 fcvt.lu.q rm,rd,frs1           # rv64q
+110101100010RRRRRAAAFFFFF1010011 fcvt.q.l rm,frd,rs1            # rv64q
+110101100011RRRRRAAAFFFFF1010011 fcvt.q.lu rm,frd,rs1           # rv64q
+111001100000FFFFF000RRRRR1010011 fmv.x.q rd,frs1                # rv64q
+111101100000RRRRR000FFFFF1010011 fmv.q.x frd,rs1                # rv64q
+                000UUUUUUUURRR00 c.addi4spn rd,rs1,imm          # rv32c
+                001UUURRRUURRR00 c.fld frd,offset(rs1)          # rv32c
+                010UUURRRUURRR00 c.lw rd,offset(rs1)            # rv32c
+                011UUURRRUURRR00 c.flw frd,offset(rs1)          # rv32c
+                101UUURRRUURRR00 c.fsd frs2,offset(rs1)         # rv32c
+                110UUURRRUURRR00 c.sw rs2,offset(rs1)           # rv32c
+                111UUURRRUURRR00 c.fsw frs2,offset(rs1)         # rv32c
+                0000000000000001 c.nop none                     # rv32c
+                000SRRRRRSSSSS01 c.addi rd,rs1,imm              # rv32c
+                001SSSSSSSSSSS01 c.jal rd,offset                # rv32c
+                010SRRRRRSSSSS01 c.li rd,rs1,imm                # rv32c
+                011S00010SSSSS01 c.addi16sp rd,rs1,imm          # rv32c
+                011SRRRRRSSSSS01 c.lui rd,imm                   # rv32c
+                100U00RRRUUUUU01 c.srli rd,rs1,imm              # rv64c
+                100U01RRRUUUUU01 c.srai rd,rs1,imm              # rv64c
+                100S10RRRSSSSS01 c.andi rd,rs1,imm              # rv32c
+                100011RRR00RRR01 c.sub rd,rs1,rs2               # rv32c
+ 3         2         1         0
+10987654321098765432109876543210
+                100011RRR01RRR01 c.xor rd,rs1,rs2               # rv32c
+                100011RRR10RRR01 c.or rd,rs1,rs2                # rv32c
+                100011RRR11RRR01 c.and rd,rs1,rs2               # rv32c
+                100111RRR00RRR01 c.subw rd,rs1,rs2              # rv32c
+                100111RRR01RRR01 c.addw rd,rs1,rs2              # rv32c
+                101SSSSSSSSSSS01 c.j rd,offset                  # rv32c
+                110SSSRRRSSSSS01 c.beqz rs1,rs2,offset          # rv32c
+                111SSSRRRSSSSS01 c.bnez rs1,rs2,offset          # rv32c
+                000URRRRRUUUUU10 c.slli rd,rs1,imm              # rv64c
+                001UFFFFFUUUUU10 c.fldsp frd,offset(rs1)        # rv32c
+                010URRRRRUUUUU10 c.lwsp rd,offset(rs1)          # rv32c
+                011UFFFFFUUUUU10 c.flwsp frd,offset(rs1)        # rv32c
+                1000RRRRR0000010 c.jr rd,rs1,offset             # rv32c
+                1000RRRRRRRRRR10 c.mv rd,rs1,rs2                # rv32c
+                1001000000000010 c.ebreak none                  # rv32c
+                1001RRRRR0000010 c.jalr rd,rs1,offset           # rv32c
+                1001RRRRRRRRRR10 c.add rd,rs1,rs2               # rv32c
+                101UUUUUUFFFFF10 c.fsdsp frs2,offset(rs1)       # rv32c
+                110UUUUUURRRRR10 c.swsp rs2,offset(rs1)         # rv32c
+                111UUUUUUFFFFF10 c.fswsp frs2,offset(rs1)       # rv32c
+                011UUURRRUURRR00 c.ld rd,offset(rs1)            # rv64c
+                111UUURRRUURRR00 c.sd rs2,offset(rs1)           # rv64c
+ 3         2         1         0
+10987654321098765432109876543210
+                001SRRRRRSSSSS01 c.addiw rd,rs1,imm             # rv64c
+                011URRRRRUUUUU10 c.ldsp rd,offset(rs1)          # rv64c
+                111UUUUUURRRRR10 c.sdsp rs2,offset(rs1)         # rv64c
+                001UUURRRUURRR00 c.lq rd,offset(rs1)            # rv128c
+                101UUURRRUURRR00 c.sq rs2,offset(rs1)           # rv128c
+                001URRRRRUUUUU10 c.lqsp rd,offset(rs1)          # rv128c
+                101UUUUUURRRRR10 c.sqsp rs2,offset(rs1)         # rv128c
+................................ @nop none                      # rv32i
+............RRRRR...RRRRR....... @mv rd,rs1                     # rv32i
+............RRRRR...RRRRR....... @not rd,rs1                    # rv32i
+.......RRRRR........RRRRR....... @neg rd,rs2                    # rv32i
+.......RRRRR........RRRRR....... @negw rd,rs2                   # rv64i
+............RRRRR...RRRRR....... @sext.w rd,rs1                 # rv64i
+............RRRRR...RRRRR....... @seqz rd,rs1                   # rv32i
+.......RRRRR........RRRRR....... @snez rd,rs2                   # rv32i
+............RRRRR...RRRRR....... @sltz rd,rs1                   # rv32i
+.......RRRRR........RRRRR....... @sgtz rd,rs2                   # rv32i
+............RRRRR...RRRRR....... @fmv.s rd,rs1                  # rv32f
+............RRRRR...RRRRR....... @fabs.s rd,rs1                 # rv32f
+............RRRRR...RRRRR....... @fneg.s rd,rs1                 # rv32f
+............RRRRR...RRRRR....... @fmv.d rd,rs1                  # rv32d
+............RRRRR...RRRRR....... @fabs.d rd,rs1                 # rv32d
+ 3         2         1         0
+10987654321098765432109876543210
+............RRRRR...RRRRR....... @fneg.d rd,rs1                 # rv32d
+............RRRRR...RRRRR....... @fmv.q rd,rs1                  # rv32q
+............RRRRR...RRRRR....... @fabs.q rd,rs1                 # rv32q
+............RRRRR...RRRRR....... @fneg.q rd,rs1                 # rv32q
+OOOOOOOOOOOORRRRROOO............ @beqz rs1,offset               # rv32i
+OOOOOOOOOOOORRRRROOO............ @bnez rs1,offset               # rv32i
+OOOOOOORRRRROOOOOOOO............ @blez rs2,offset               # rv32i
+OOOOOOOOOOOORRRRROOO............ @bgez rs1,offset               # rv32i
+OOOOOOOOOOOORRRRROOO............ @bltz rs1,offset               # rv32i
+OOOOOOORRRRROOOOOOOO............ @bgtz rs2,offset               # rv32i
+OOOOOOORRRRRRRRRROOO............ @ble rs2,rs1,offset            # rv32i
+OOOOOOORRRRRRRRRROOO............ @bleu rs2,rs1,offset           # rv32i
+OOOOOOORRRRRRRRRROOO............ @bgt rs2,rs1,offset            # rv32i
+OOOOOOORRRRRRRRRROOO............ @bgtu rs2,rs1,offset           # rv32i
+OOOOOOOOOOOOOOOOOOOO............ @j offset                      # rv32i
+................................ @ret none                      # rv32i
+............RRRRR............... @jr rs1                        # rv32i
+....................RRRRR....... @rdcycle rd                    # rv32s
+....................RRRRR....... @rdtime rd                     # rv32s
+....................RRRRR....... @rdinstret rd                  # rv32s
+....................RRRRR....... @rdcycleh rd                   # rv32s
+....................RRRRR....... @rdtimeh rd                    # rv32s
+ 3         2         1         0
+10987654321098765432109876543210
+....................RRRRR....... @rdinstreth rd                 # rv32s
+....................RRRRR....... @frcsr rd                      # rv32s
+....................RRRRR....... @frrm rd                       # rv32s
+....................RRRRR....... @frflags rd                    # rv32s
+............RRRRR...RRRRR....... @fscsr rd,rs1                  # rv32s
+............RRRRR...RRRRR....... @fsrm rd,rs1                   # rv32s
+............RRRRR...RRRRR....... @fsflags rd,rs1                # rv32s
+............UUUUU...RRRRR....... @fsrmi rd,zimm                 # rv32s
+............UUUUU...RRRRR....... @fsflagsi rd,zimm              # rv32s
